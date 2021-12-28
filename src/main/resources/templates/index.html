@@ -17,11 +17,11 @@
 
 <div class="container-xl">
 
-    <form method="post" action="/alko" name="alkoform">
+    <form method="post" th:action="@{/alko}" name="alkoform" th:object="${form}" >
 
         <div class="input-group input-group-lg">
             <span class="input-group-text" id="Gewicht">Gewicht(kg)</span>
-            <input type="number" class="form-control">
+            <input type="number" class="form-control" th:field="*{gewicht}">
         </div>
 
         <br>
@@ -29,7 +29,7 @@
 
         <div class="input-group input-group-lg">
             <span class="input-group-text" id="Bier">Bier 5%(ml)</span>
-            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            <input type="number" class="form-control" th:field="*{bier}">
         </div>
 
         <br>
@@ -37,7 +37,7 @@
 
         <div class="input-group input-group-lg">
             <span class="input-group-text" id="Wein">Wein 12%(ml)</span>
-            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            <input type="number" class="form-control" th:field="*{wein}">
         </div>
 
         <br>
@@ -45,7 +45,7 @@
 
         <div class="input-group input-group-lg">
             <span class="input-group-text" id="Vodka">Vodka 40%(ml)  </span>
-            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            <input type="number" class="form-control" th:field="*{vodka}">
         </div>
 
         <br>
@@ -53,7 +53,7 @@
 
         <div class="input-group input-group-lg">
             <span class="input-group-text" id="Whiskey">Whiskey 43%(ml)</span>
-            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            <input type="number" class="form-control" th:field="*{whiskey}">
         </div>
 
         <br>
@@ -63,6 +63,15 @@
             <button type="submit" class="btn btn-success">abschicken</button>
         </center>
     </form>
+
+    <br>
+    <br>
+
+    <center>
+        <div class="alert alert-dark" role="alert" th:if="${result} != null" th:text="${result}">
+            alert
+        </div>
+    </center>
 
 </div>
 
